@@ -1,4 +1,4 @@
-# skHWID
+# skHWID 1.0
 Expression
 ```
 [skHWID] uptime
