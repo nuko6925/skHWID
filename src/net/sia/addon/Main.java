@@ -3,6 +3,8 @@ package net.sia.addon;
 import java.math.BigInteger;
 
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ch.njol.skript.Skript;
@@ -22,6 +24,7 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 	public void onEnable() {
+		this.getServer().getPluginManager().registerEvents(this, this);
 		Skript.registerAddon(this);
 		Skript.registerExpression(HWID.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] hwid"});
 		Skript.registerExpression(Uptime.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] uptime"});
@@ -38,15 +41,13 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(Alert.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] (create|make) alert of %string%"});
 		Skript.registerEffect(Ping.class, new String[] {"[skHWID] set ping of %player% to %long%"});
 		Skript.registerEffect(Ping.class, new String[] {"[skHWID] set %player%'s ping to %long%"});
-		Skript.registerExpression(Version.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] server version"});
-		Skript.registerExpression(Version.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] version of server"});
-		Skript.registerExpression(JvmName.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] jvm name"});
-		Skript.registerExpression(JvmName.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] name of jvm"});
+		Skript.registerExpression(CPing.class, Integer.class, ExpressionType.COMBINED, new String[] {"[skHWID] %player%'s ping", "[skHWID] ping of %player%"});
+		Skript.registerExpression(Version.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] server version", "[skHWID] version of server"});
+		Skript.registerExpression(JvmName.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] jvm name", "[skHWID] name of jvm"});
 		Skript.registerEffect(GC.class, new String[] {"[skHWID] run gc"});
 		Skript.registerCondition(No.class, new String[] {"[skHWID] %object% != %object%"});
 		Skript.registerCondition(Yes.class, new String[] {"[skHWID] %object% == %object%"});
-		Skript.registerEffect(Arrow.class, new String[] {"[skHWID] delete stuck arrow of %player%"});
-		Skript.registerEffect(Arrow.class, new String[] {"[skHWID] delete %player%'s stuck arrow"});
+		Skript.registerEffect(Arrow.class, new String[] {"[skHWID] delete stuck arrow of %player%", "[skHWID] delete %player%'s stuck arrow"});
 		Skript.registerEffect(Hologram.class, new String[] {"[skHWID] set comment of %player% to %string%"});
 		Skript.registerEffect(Hologram.class, new String[] {"[skHWID] set %player%'s comment to %string%"});
 		Skript.registerEffect(Tabtitle.class, new String[] {"[skHWID] set tab header to %string% and footer to %string% for %player%"});
@@ -66,8 +67,21 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(Lower.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] lower string from %string%"});
 		Skript.registerEffect(HideArmor.class, new String[] {"[skHWID] hide armor %string% of %player%"});
 		Skript.registerEffect(ShowArmor.class, new String[] {"[skHWID] show armor %string% of %player%"});
+		Skript.registerExpression(GetHotbarSlot.class, Long.class, ExpressionType.COMBINED, "[skHWID] get hotbar slot of %player%");
+		Skript.registerEffect(ItemNameToInvSlot.class, "[skHWID] set item name from slot %long% of %player%['s inventory] to %string%");
+		Skript.registerExpression(ItemNameFromInvSlot.class, String.class, ExpressionType.COMBINED, "[skHWID] get item name from slot %long% of %player%['s inventory]");
+		Skript.registerExpression(ItemFromInvSlot.class, ItemStack.class, ExpressionType.COMBINED, "[skHWID] get item from slot %long% of %player%['s inventory]");
 		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
 		Skript.registerExpression(Fact.class, BigInteger.class, ExpressionType.COMBINED, new String[] {"[skHWID] fact of %long%"});
+		Skript.registerEffect(Velocity.class, new String[] {"[skHWID] (delete|cancel) %player%'s (knockback|kb|velocity)"});
+		Skript.registerEffect(VelocityHorizontal.class, new String[] {"[skHWID] make (knockback|velocity) %player% horizon %number% vertical %number% by %player%"});
+		Skript.registerEffect(VelocityForce.class, new String[] {"[skHWID] set (knockback|velocity) %player% horizon %number% vertical %number% by %player%"});
+		Skript.registerExpression(InventoryClickType.class, ClickType.class, ExpressionType.COMBINED, "[skHWID] (get|inventory) clicked type");
+		Skript.registerEffect(Recoilup.class, "[skHWID] make %player% recoil up[ward] at %-number% and side at %-number%");
+		Skript.registerEffect(CreateImage.class, "[skHWID] (create|make) image contents %string% with font %string% with size %long% named %string% at %string%");
+		Skript.registerExpression(HexfromStr.class, String.class, ExpressionType.COMBINED, "[skHWID] hex from %string%");
+		Skript.registerExpression(StrfromHex.class, String.class, ExpressionType.COMBINED, "[skHWID] str[ing] from %string%");
+		Skript.registerExpression(HexfromBin.class, String.class, ExpressionType.COMBINED, "[skHWID] hex as bin[ary] %string%");
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
 		Skript.registerExpression(LogExp.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-log"});
 		Skript.registerExpression(LogLevel.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-level"});

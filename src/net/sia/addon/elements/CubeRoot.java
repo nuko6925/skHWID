@@ -38,9 +38,8 @@ public class CubeRoot extends SimpleExpression<Double> {
 	@Nullable
 	protected Double[] get(Event arg0) {
 		Number number = (Number)this.ex_num.getSingle(arg0);
-		double numd = (double)number;
 		try {
-			return new Double[] { Math.cbrt(numd) };
+			return new Double[] { Math.cbrt(number.doubleValue()) };
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
