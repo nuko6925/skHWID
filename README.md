@@ -24,6 +24,13 @@ Expression
 [skHWID] [server] event-log
 [skHWID] [server] event-level
 [skHWID] [server] event-sender
+[skHWID] get hotbar slot of %player%
+[skHWID] get item name from slot %long% of %player%['s inventory]
+[skHWID] get item from slot %long% of %player%['s inventory]
+[skHWID] (get|inventory) clicked type
+[skHWID] hex from %string%
+[skHWID] str[ing] from %string%
+[skHWID] hex as bin[ary] %string%
 ```
 Effect
 ```
