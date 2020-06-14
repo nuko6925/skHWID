@@ -31,6 +31,7 @@ Expression
 [skHWID] hex from %string%
 [skHWID] str[ing] from %string%
 [skHWID] hex as bin[ary] %string%
+[skHWID] entity %entity% is alive
 ```
 Effect
 ```
@@ -39,6 +40,8 @@ Effect
 [skHWID] delete %player%'s stuck arrow
 [skHWID] send %player% title %string% with subtitle %string%
 [skHWID] drop fix %itemtype% at %location%
+[skHWID] (create|make) image contents %string% with font %string% with size %font_size% named %file_name% at %path%
+[skHWID] (delete|kill) entity %entity%
 ```
 Condition
 ```
