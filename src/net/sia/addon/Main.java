@@ -1,5 +1,6 @@
 package net.sia.addon;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import org.bukkit.event.Listener;
@@ -84,6 +85,9 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(HexfromBin.class, String.class, ExpressionType.COMBINED, "[skHWID] hex as bin[ary] %string%");
 		Skript.registerEffect(DelEntity.class, "[skHWID] (delete|kill) entity %entity%");
 		Skript.registerExpression(AliveEntity.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] entity %entity% is alive");
+		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
+		Skript.registerExpression(ParseBigInt.class, BigInteger.class, ExpressionType.COMBINED, "%string% parsed as bigint[eger]");
+		Skript.registerExpression(ParseBigDec.class, BigDecimal.class, ExpressionType.COMBINED, "%string% parsed as (bigdec[imal]|bignum[ber])");
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
 		Skript.registerExpression(LogExp.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-log"});
 		Skript.registerExpression(LogLevel.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-level"});
