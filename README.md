@@ -1,4 +1,4 @@
-# skHWID 1.0.1
+# skHWID 1.0.2
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -33,6 +33,8 @@ Expression
 [skHWID] str[ing] from %string%
 [skHWID] hex as bin[ary] %string%
 [skHWID] entity %entity% is alive
+%string% parsed as bigint[eger]
+%string% parsed as (bigdec[imal]|bignum[ber])
 ```
 Effect
 ```
@@ -43,6 +45,7 @@ Effect
 [skHWID] drop fix %itemtype% at %location%
 [skHWID] (create|make) image contents %string% with font %string% with size %font_size% named %file_name% at %path%
 [skHWID] (delete|kill) entity %entity%
+[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%
 ```
 Condition
 ```
