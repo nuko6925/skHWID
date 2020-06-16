@@ -88,6 +88,10 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
 		Skript.registerExpression(ParseBigInt.class, BigInteger.class, ExpressionType.COMBINED, "%string% parsed as bigint[eger]");
 		Skript.registerExpression(ParseBigDec.class, BigDecimal.class, ExpressionType.COMBINED, "%string% parsed as (bigdec[imal]|bignum[ber])");
+		Skript.registerExpression(GetFilesize.class, Long.class, ExpressionType.COMBINED, "[skHWID] get b[yte] file (size|length) of %string%");
+		Skript.registerExpression(GetFilesizek.class, Double.class, ExpressionType.COMBINED, "[skHWID] get kb[yte] file (size|length) of %string%");
+		Skript.registerExpression(GetFilesizem.class, Double.class, ExpressionType.COMBINED, "[skHWID] get mb[yte] file (size|length) of %string%");
+		Skript.registerExpression(GetFilename.class, String.class, ExpressionType.COMBINED, "[skHWID] get file name of %string%");
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
 		Skript.registerExpression(LogExp.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-log"});
 		Skript.registerExpression(LogLevel.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-level"});
