@@ -1,4 +1,4 @@
-# skHWID 1.0.2
+# skHWID 1.0.3
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -35,6 +35,8 @@ Expression
 [skHWID] entity %entity% is alive
 %string% parsed as bigint[eger]
 %string% parsed as (bigdec[imal]|bignum[ber])
+[skHWID] get (b[yte]|kb[yte]|mb[yte]) file (size|length) of %path_string%
+[skHWID] get file name of %path_string%
 ```
 Effect
 ```
