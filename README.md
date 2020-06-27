@@ -1,4 +1,4 @@
-# skHWID 1.0.3
+# skHWID 1.0.4
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -37,6 +37,7 @@ Expression
 (1.0.2+)%string% parsed as (bigdec[imal]|bignum[ber])
 (1.0.3+)[skHWID] get (b[yte]|kb[yte]|mb[yte]) file (size|length) of %path_string%
 (1.0.3+)[skHWID] get file name of %path_string%
+(1.0.4+)[skHWID] can %player% see %player%
 ```
 Effect
 ```
