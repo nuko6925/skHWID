@@ -92,6 +92,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(GetFilesizek.class, Double.class, ExpressionType.COMBINED, "[skHWID] get kb[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilesizem.class, Double.class, ExpressionType.COMBINED, "[skHWID] get mb[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilename.class, String.class, ExpressionType.COMBINED, "[skHWID] get file name of %string%");
+		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] can %player% see %player%");
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
 		Skript.registerExpression(LogExp.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-log"});
 		Skript.registerExpression(LogLevel.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-level"});
