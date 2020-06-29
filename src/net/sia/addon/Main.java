@@ -12,6 +12,25 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import ch.njol.skript.lang.ExpressionType;
 import net.sia.addon.elements.*;
+import net.sia.addon.elements.math.CalcPI;
+import net.sia.addon.elements.math.CubeRoot;
+import net.sia.addon.elements.math.Fact;
+import net.sia.addon.elements.math.HexfromBin;
+import net.sia.addon.elements.math.HexfromStr;
+import net.sia.addon.elements.math.Napier;
+import net.sia.addon.elements.math.PI;
+import net.sia.addon.elements.math.ParseBigDec;
+import net.sia.addon.elements.math.ParseBigInt;
+import net.sia.addon.elements.math.StrfromHex;
+import net.sia.addon.elements.secure.Computer;
+import net.sia.addon.elements.secure.FileCRC;
+import net.sia.addon.elements.secure.FileMD5;
+import net.sia.addon.elements.secure.GetFilename;
+import net.sia.addon.elements.secure.GetFilesize;
+import net.sia.addon.elements.secure.GetFilesizek;
+import net.sia.addon.elements.secure.GetFilesizem;
+import net.sia.addon.elements.secure.HWID;
+import net.sia.addon.elements.secure.User;
 import net.sia.addon.util.*;
 
 public class Main extends JavaPlugin implements Listener {
@@ -27,9 +46,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void onEnable() {
 		this.getServer().getPluginManager().registerEvents(this, this);
 		Skript.registerAddon(this);
-		Skript.registerExpression(HWID.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] hwid"});
 		Skript.registerExpression(Uptime.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] uptime"});
-		Skript.registerExpression(User.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] user"});
 		Skript.registerExpression(Stepping.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] stepping"});
 		Skript.registerExpression(BorderSize.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] border size of %string%"});
 		Skript.registerExpression(GetDate.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] get date from %long%"});
@@ -40,8 +57,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(Cpuload2.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] [system] cpuload"});
 		Skript.registerExpression(Screen.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] (create|make) (screen|window) size of %long%, %long% with title %string% with color %long%, %long%, %long%"});
 		Skript.registerExpression(Alert.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] (create|make) alert of %string%"});
-		Skript.registerEffect(Ping.class, new String[] {"[skHWID] set ping of %player% to %long%"});
-		Skript.registerEffect(Ping.class, new String[] {"[skHWID] set %player%'s ping to %long%"});
+		Skript.registerEffect(Ping.class, new String[] {"[skHWID] set ping of %player% to %long%", "[skHWID] set %player%'s ping to %long%"});
 		Skript.registerExpression(CPing.class, Integer.class, ExpressionType.COMBINED, new String[] {"[skHWID] %player%'s ping", "[skHWID] ping of %player%"});
 		Skript.registerExpression(Version.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] server version", "[skHWID] version of server"});
 		Skript.registerExpression(JvmName.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] jvm name", "[skHWID] name of jvm"});
@@ -72,27 +88,38 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerEffect(ItemNameToInvSlot.class, "[skHWID] set item name from slot %long% of %player%['s inventory] to %string%");
 		Skript.registerExpression(ItemNameFromInvSlot.class, String.class, ExpressionType.COMBINED, "[skHWID] get item name from slot %long% of %player%['s inventory]");
 		Skript.registerExpression(ItemFromInvSlot.class, ItemStack.class, ExpressionType.COMBINED, "[skHWID] get item from slot %long% of %player%['s inventory]");
-		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
-		Skript.registerExpression(Fact.class, BigInteger.class, ExpressionType.COMBINED, new String[] {"[skHWID] fact of %long%"});
 		Skript.registerEffect(Velocity.class, new String[] {"[skHWID] (delete|cancel) %player%'s (knockback|kb|velocity)"});
 		Skript.registerEffect(VelocityHorizontal.class, new String[] {"[skHWID] make (knockback|velocity) %player% horizon %number% vertical %number% by %player%"});
 		Skript.registerEffect(VelocityForce.class, new String[] {"[skHWID] set (knockback|velocity) %player% horizon %number% vertical %number% by %player%"});
 		Skript.registerExpression(InventoryClickType.class, ClickType.class, ExpressionType.COMBINED, "[skHWID] (get|inventory) clicked type");
 		Skript.registerEffect(Recoilup.class, "[skHWID] make %player% recoil up[ward] at %-number% and side at %-number%");
 		Skript.registerEffect(CreateImage.class, "[skHWID] (create|make) image contents %string% with font %string% with size %long% named %string% at %string%");
-		Skript.registerExpression(HexfromStr.class, String.class, ExpressionType.COMBINED, "[skHWID] hex from %string%");
-		Skript.registerExpression(StrfromHex.class, String.class, ExpressionType.COMBINED, "[skHWID] str[ing] from %string%");
-		Skript.registerExpression(HexfromBin.class, String.class, ExpressionType.COMBINED, "[skHWID] hex as bin[ary] %string%");
 		Skript.registerEffect(DelEntity.class, "[skHWID] (delete|kill) entity %entity%");
 		Skript.registerExpression(AliveEntity.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] entity %entity% is alive");
 		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
+		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] can %player% see %player%", "[skHWID] %player% can see %player%"});
+		
+		Skript.registerExpression(Napier.class, Double.class, ExpressionType.COMBINED, "[skHWID] math e");
+		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
+		Skript.registerExpression(Fact.class, BigInteger.class, ExpressionType.COMBINED, new String[] {"[skHWID] fact of %long%"});
 		Skript.registerExpression(ParseBigInt.class, BigInteger.class, ExpressionType.COMBINED, "%string% parsed as bigint[eger]");
 		Skript.registerExpression(ParseBigDec.class, BigDecimal.class, ExpressionType.COMBINED, "%string% parsed as (bigdec[imal]|bignum[ber])");
+		Skript.registerExpression(CalcPI.class, String.class, ExpressionType.COMBINED, "[skHWID] getpi with %long%");
+		Skript.registerExpression(PI.class, Double.class, ExpressionType.COMBINED, "[skHWID] math pi");
+		Skript.registerExpression(HexfromStr.class, String.class, ExpressionType.COMBINED, "[skHWID] hex from %string%");
+		Skript.registerExpression(StrfromHex.class, String.class, ExpressionType.COMBINED, "[skHWID] str[ing] from %string%");
+		Skript.registerExpression(HexfromBin.class, String.class, ExpressionType.COMBINED, "[skHWID] hex as bin[ary] %string%");
+		
+		Skript.registerExpression(FileCRC.class, String.class, ExpressionType.COMBINED, "[skHWID] [file]crc %string%");
+		Skript.registerExpression(FileMD5.class, String.class, ExpressionType.COMBINED, "[skHWID] [file]md5 %string%");
 		Skript.registerExpression(GetFilesize.class, Long.class, ExpressionType.COMBINED, "[skHWID] get b[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilesizek.class, Double.class, ExpressionType.COMBINED, "[skHWID] get kb[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilesizem.class, Double.class, ExpressionType.COMBINED, "[skHWID] get mb[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilename.class, String.class, ExpressionType.COMBINED, "[skHWID] get file name of %string%");
-		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] can %player% see %player%");
+		Skript.registerExpression(HWID.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] hwid"});
+		Skript.registerExpression(User.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] user"});
+		Skript.registerExpression(Computer.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] computer", "[skHWID] pc"});
+		
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
 		Skript.registerExpression(LogExp.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-log"});
 		Skript.registerExpression(LogLevel.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] [server] event-level"});
