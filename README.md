@@ -1,4 +1,4 @@
-# skHWID 1.0.4
+# skHWID 1.0.7
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -38,6 +38,8 @@ Expression
 (1.0.3+)[skHWID] get (b[yte]|kb[yte]|mb[yte]) file (size|length) of %path_string%
 (1.0.3+)[skHWID] get file name of %path_string%
 (1.0.4+)[skHWID] can %player% see %player%
+(1.0.7+)[skHWID] [file]crc %string%
+(1.0.7+)[skHWID] [file]md5 %string%
 ```
 Effect
 ```
