@@ -1,4 +1,4 @@
-# skHWID 1.0.7
+# skHWID 1.0.8
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -25,6 +25,7 @@ Expression
 (1.0.0+)[skHWID] [server] event-log
 (1.0.0+)[skHWID] [server] event-level
 (1.0.0+)[skHWID] [server] event-sender
+(1.0.a+)[skHWID] (delete|cancel) %player%'s (knockback|kb|velocity)
 (1.0.a+)[skHWID] get hotbar slot of %player%
 (1.0.a+)[skHWID] get item name from slot %long% of %player%['s inventory]
 (1.0.a+)[skHWID] get item from slot %long% of %player%['s inventory]
@@ -40,6 +41,8 @@ Expression
 (1.0.4+)[skHWID] can %player% see %player%
 (1.0.7+)[skHWID] [file]crc %string%
 (1.0.7+)[skHWID] [file]md5 %string%
+(1.0.8+)[skHWID] check whitelist
+(1.0.8+)[skHWID] whitelist has %offlineplayer%
 ```
 Effect
 ```
@@ -51,6 +54,7 @@ Effect
 (1.0.1+)[skHWID] (create|make) image contents %string% with font %string% with size %font_size% named %file_name% at %path%
 (1.0.2+)[skHWID] (delete|kill) entity %entity%
 (1.0.2+)[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%
+(1.0.8+)[skHWID] spigot setCollides[WithEntities] of %player% to %boolean%
 ```
 Condition
 ```
