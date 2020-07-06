@@ -31,6 +31,8 @@ import net.sia.addon.elements.secure.GetFilesizek;
 import net.sia.addon.elements.secure.GetFilesizem;
 import net.sia.addon.elements.secure.HWID;
 import net.sia.addon.elements.secure.User;
+import net.sia.addon.elements.secure.WlCheck;
+import net.sia.addon.elements.secure.WlPlayer;
 import net.sia.addon.util.*;
 
 public class Main extends JavaPlugin implements Listener {
@@ -98,6 +100,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(AliveEntity.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] entity %entity% is alive");
 		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
 		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] can %player% see %player%", "[skHWID] %player% can see %player%"});
+		Skript.registerEffect(Collides.class, "[skHWID] spigot setCollides[WithEntities] of %player% to %boolean%");
 		
 		Skript.registerExpression(Napier.class, Double.class, ExpressionType.COMBINED, "[skHWID] math e");
 		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
@@ -112,6 +115,8 @@ public class Main extends JavaPlugin implements Listener {
 		
 		Skript.registerExpression(FileCRC.class, String.class, ExpressionType.COMBINED, "[skHWID] [file]crc %string%");
 		Skript.registerExpression(FileMD5.class, String.class, ExpressionType.COMBINED, "[skHWID] [file]md5 %string%");
+		Skript.registerExpression(WlCheck.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] check whitelist");
+		Skript.registerExpression(WlPlayer.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] whitelist has %offlineplayer%");
 		Skript.registerExpression(GetFilesize.class, Long.class, ExpressionType.COMBINED, "[skHWID] get b[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilesizek.class, Double.class, ExpressionType.COMBINED, "[skHWID] get kb[yte] file (size|length) of %string%");
 		Skript.registerExpression(GetFilesizem.class, Double.class, ExpressionType.COMBINED, "[skHWID] get mb[yte] file (size|length) of %string%");
