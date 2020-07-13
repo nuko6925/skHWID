@@ -58,7 +58,7 @@ public class VPN extends SimpleExpression<Boolean> {
 		try {
 			URL url = new URL("http://v2.api.iphub.info/ip/"+ip);
 			urlConnection = (HttpURLConnection)url.openConnection();
-			urlConnection.setRequestProperty("X-Key: ", "Mzc2NjpOQlZpS0c1dUt1V3ljWnF3ZExrTHY0ZHp0a3FKTzJGVQ==");
+			urlConnection.setRequestProperty("X-Key: ", "123");
 			urlConnection.setRequestMethod("GET");
 			urlConnection.connect();
 			int status = urlConnection.getResponseCode();
