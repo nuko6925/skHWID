@@ -1,4 +1,4 @@
-# skHWID 1.0.8
+# skHWID 1.1(.0)
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -43,6 +43,7 @@ Expression
 (1.0.7+)[skHWID] [file]md5 %string%
 (1.0.8+)[skHWID] check whitelist
 (1.0.8+)[skHWID] whitelist has %offlineplayer%
+(1.1.0+)[skHWID] %player% (use|using) vpn
 ```
 Effect
 ```
