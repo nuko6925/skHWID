@@ -1,4 +1,4 @@
-# skHWID 1.1(.0)
+# skHWID 1.1.0
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
