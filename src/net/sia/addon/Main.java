@@ -23,6 +23,7 @@ import net.sia.addon.elements.math.ParseBigDec;
 import net.sia.addon.elements.math.ParseBigInt;
 import net.sia.addon.elements.math.StrfromHex;
 import net.sia.addon.elements.secure.Computer;
+import net.sia.addon.elements.secure.Country;
 import net.sia.addon.elements.secure.FileCRC;
 import net.sia.addon.elements.secure.FileMD5;
 import net.sia.addon.elements.secure.GetFilename;
@@ -102,7 +103,6 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
 		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] can %player% see %player%", "[skHWID] %player% can see %player%"});
 		Skript.registerEffect(Collides.class, "[skHWID] spigot setCollides[WithEntities] of %player% to %boolean%");
-		Skript.registerEffect(WebSShot.class, "[skHWID] save web s[creen]shot of %string% to %string%");
 		
 		Skript.registerExpression(Napier.class, Double.class, ExpressionType.COMBINED, "[skHWID] math e");
 		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
@@ -126,6 +126,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(HWID.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] hwid"});
 		Skript.registerExpression(User.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] user"});
 		Skript.registerExpression(VPN.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] %player% (use|using) vpn");
+		Skript.registerExpression(Country.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] %player%'s country", "[skHWID] country of %player%"});
 		Skript.registerExpression(Computer.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] computer", "[skHWID] pc"});
 		
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
