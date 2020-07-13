@@ -31,6 +31,7 @@ import net.sia.addon.elements.secure.GetFilesizek;
 import net.sia.addon.elements.secure.GetFilesizem;
 import net.sia.addon.elements.secure.HWID;
 import net.sia.addon.elements.secure.User;
+import net.sia.addon.elements.secure.VPN;
 import net.sia.addon.elements.secure.WlCheck;
 import net.sia.addon.elements.secure.WlPlayer;
 import net.sia.addon.util.*;
@@ -101,6 +102,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
 		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] can %player% see %player%", "[skHWID] %player% can see %player%"});
 		Skript.registerEffect(Collides.class, "[skHWID] spigot setCollides[WithEntities] of %player% to %boolean%");
+		Skript.registerEffect(WebSShot.class, "[skHWID] save web s[creen]shot of %string% to %string%");
 		
 		Skript.registerExpression(Napier.class, Double.class, ExpressionType.COMBINED, "[skHWID] math e");
 		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
@@ -123,6 +125,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(GetFilename.class, String.class, ExpressionType.COMBINED, "[skHWID] get file name of %string%");
 		Skript.registerExpression(HWID.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] hwid"});
 		Skript.registerExpression(User.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] user"});
+		Skript.registerExpression(VPN.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] %player% (use|using) vpn");
 		Skript.registerExpression(Computer.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] computer", "[skHWID] pc"});
 		
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
