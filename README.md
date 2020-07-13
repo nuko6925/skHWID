@@ -44,6 +44,7 @@ Expression
 (1.0.8+)[skHWID] check whitelist
 (1.0.8+)[skHWID] whitelist has %offlineplayer%
 (1.1.0+)[skHWID] %player% (use|using) vpn
+(1.1.0+)[skHWID] %player%'s country
 ```
 Effect
 ```
