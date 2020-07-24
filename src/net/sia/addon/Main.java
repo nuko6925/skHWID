@@ -1,7 +1,8 @@
 package net.sia.addon;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
@@ -40,6 +41,7 @@ import net.sia.addon.util.*;
 public class Main extends JavaPlugin implements Listener {
 	private static Main instance;
 	private static SkriptAddon addonInstance;
+	public static List<Integer> ginfo = new ArrayList<Integer>();
 	public Main() {
 		if (instance == null) {
 			instance = this;
@@ -49,6 +51,12 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	public void onEnable() {
 		this.getServer().getPluginManager().registerEvents(this, this);
+		ginfo.add(0, 0);
+		ginfo.add(1, 0);
+		ginfo.add(2, 0);
+		ginfo.add(3, 0);
+		ginfo.add(4, 0);
+		ginfo.add(5, 0);
 		Skript.registerAddon(this);
 		Skript.registerExpression(Uptime.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] uptime"});
 		Skript.registerExpression(Stepping.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] stepping"});
@@ -103,12 +111,17 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerEffect(Particle.class, "[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%");
 		Skript.registerExpression(CanSee.class, Boolean.class, ExpressionType.COMBINED, new String[] {"[skHWID] can %player% see %player%", "[skHWID] %player% can see %player%"});
 		Skript.registerEffect(Collides.class, "[skHWID] spigot setCollides[WithEntities] of %player% to %boolean%");
+		Skript.registerExpression(DisplayName.class, String.class, ExpressionType.COMBINED, "[skHWID] displayed name of %player%");
+		Skript.registerEffect(UpdateWater.class, "[skHWID] update water at %location%");
+		Skript.registerEffect(Picload.class, "[skHWID] pic[ture]load %string%");
+		Skript.registerEffect(Pget.class, "[skHWID] p[ixel]get %string% at %long% and %long%");
+		Skript.registerExpression(GInfo.class, Long.class, ExpressionType.COMBINED, "[skHWID] g[eneral]info[rmation] %long%");
 		
 		Skript.registerExpression(Napier.class, Double.class, ExpressionType.COMBINED, "[skHWID] math e");
 		Skript.registerExpression(CubeRoot.class, Double.class, ExpressionType.COMBINED, new String[] {"[skHWID] cbrt of %number%"});
 		Skript.registerExpression(Fact.class, BigInteger.class, ExpressionType.COMBINED, new String[] {"[skHWID] fact of %long%"});
-		Skript.registerExpression(ParseBigInt.class, BigInteger.class, ExpressionType.COMBINED, "%string% parsed as bigint[eger]");
-		Skript.registerExpression(ParseBigDec.class, BigDecimal.class, ExpressionType.COMBINED, "%string% parsed as (bigdec[imal]|bignum[ber])");
+		Skript.registerExpression(ParseBigInt.class, String.class, ExpressionType.COMBINED, "%string% parsed as bigint[eger]");
+		Skript.registerExpression(ParseBigDec.class, String.class, ExpressionType.COMBINED, "%string% parsed as (bigdec[imal]|bignum[ber])");
 		Skript.registerExpression(CalcPI.class, String.class, ExpressionType.COMBINED, "[skHWID] getpi with %long%");
 		Skript.registerExpression(PI.class, Double.class, ExpressionType.COMBINED, "[skHWID] math pi");
 		Skript.registerExpression(HexfromStr.class, String.class, ExpressionType.COMBINED, "[skHWID] hex from %string%");
