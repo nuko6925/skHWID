@@ -1,4 +1,4 @@
-# skHWID 1.1.0
+# skHWID 1.1.5
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -45,6 +45,8 @@ Expression
 (1.0.8+)[skHWID] whitelist has %offlineplayer%
 (1.1.0+)[skHWID] %player% (use|using) vpn
 (1.1.0+)[skHWID] %player%'s country
+(1.1.1+)[skHWID] displayed name of %player%
+(1.1.5+)[skHWID] g[eneral]info[rmation] %long%
 ```
 Effect
 ```
@@ -57,6 +59,9 @@ Effect
 (1.0.2+)[skHWID] (delete|kill) entity %entity%
 (1.0.2+)[skHWID] create dust with r[ed] %long% g[reen] %long% b[lue] %long% at %location% at speed %number% and count %long% for %player%
 (1.0.8+)[skHWID] spigot setCollides[WithEntities] of %player% to %boolean%
+(1.1.4+)[skHWID] update water at %location%
+(1.1.5+)[skHWID] pic[ture]load %string%
+(1.1.5+)[skHWID] p[ixel]get %string% at %long% and %long%
 ```
 Condition
 ```
