@@ -2,12 +2,8 @@ package net.sia.addon.elements;
 
 import org.bukkit.event.Event;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.imageio.ImageIO;
 
 import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
 
@@ -16,15 +12,16 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import net.sia.addon.Main;
-import net.sia.addon.util.AbsolutePath;
 
-public class Picload extends Effect {
-	Expression<String> ex_path;
+public class Bget extends Effect {
+	Expression<Long> ex_x;
+	Expression<Long> ex_y;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-		ex_path = (Expression<String>)arg0[0];
+		ex_x = (Expression<Long>)arg0[0];
+		ex_y = (Expression<Long>)arg0[1];
 		return true;
 	}
 
@@ -35,19 +32,22 @@ public class Picload extends Effect {
 
 	@Override
 	protected void execute(Event arg0) {
-		String path = (String)ex_path.getSingle(arg0);
-		Path pth = Paths.get(AbsolutePath.getDefaultPath(path));
-		File file = new File(pth.toString());
-		BufferedImage image = null;;
+		long xx = (long)ex_x.getSingle(arg0);
+		long yy = (long)ex_y.getSingle(arg0);
+		int x = Math.toIntExact(xx);
+		int y = Math.toIntExact(yy);
+		BufferedImage image = null;
 		try {
-			image = ImageIO.read(file);
+			image = Main.image;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (image != null) {
-			Main.ginfo.set(0, image.getWidth());
-			Main.ginfo.set(1, image.getHeight());
-			Main.image = image;
+			Color color = new Color(image.getRGB(x, y));
+			Main.ginfo.set(2, color.getRed());
+			Main.ginfo.set(3, color.getGreen());
+			Main.ginfo.set(4, color.getBlue());
+			Main.ginfo.set(5, color.getAlpha());
 		}
 		
 	}
