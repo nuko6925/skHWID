@@ -1,4 +1,4 @@
-# skHWID 1.1.5
+# skHWID 1.1.6
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -62,6 +62,7 @@ Effect
 (1.1.4+)[skHWID] update water at %location%
 (1.1.5+)[skHWID] pic[ture]load %string%
 (1.1.5+)[skHWID] p[ixel]get %string% at %long% and %long%
+(1.1.6+)[skHWID] b[uffer]get %long% and %long%
 ```
 Condition
 ```
