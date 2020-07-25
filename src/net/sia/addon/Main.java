@@ -1,5 +1,6 @@
 package net.sia.addon;
 
+import java.awt.image.BufferedImage;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ import net.sia.addon.elements.secure.GetFilename;
 import net.sia.addon.elements.secure.GetFilesize;
 import net.sia.addon.elements.secure.GetFilesizek;
 import net.sia.addon.elements.secure.GetFilesizem;
+import net.sia.addon.elements.secure.GetReq;
 import net.sia.addon.elements.secure.HWID;
 import net.sia.addon.elements.secure.User;
 import net.sia.addon.elements.secure.VPN;
@@ -42,6 +44,7 @@ public class Main extends JavaPlugin implements Listener {
 	private static Main instance;
 	private static SkriptAddon addonInstance;
 	public static List<Integer> ginfo = new ArrayList<Integer>();
+	public static BufferedImage image = null;
 	public Main() {
 		if (instance == null) {
 			instance = this;
@@ -115,6 +118,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerEffect(UpdateWater.class, "[skHWID] update water at %location%");
 		Skript.registerEffect(Picload.class, "[skHWID] pic[ture]load %string%");
 		Skript.registerEffect(Pget.class, "[skHWID] p[ixel]get %string% at %long% and %long%");
+		Skript.registerEffect(Bget.class, "[skHWID] b[uffer]get %long% and %long%");
 		Skript.registerExpression(GInfo.class, Long.class, ExpressionType.COMBINED, "[skHWID] g[eneral]info[rmation] %long%");
 		
 		Skript.registerExpression(Napier.class, Double.class, ExpressionType.COMBINED, "[skHWID] math e");
@@ -140,6 +144,7 @@ public class Main extends JavaPlugin implements Listener {
 		Skript.registerExpression(User.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] user"});
 		Skript.registerExpression(VPN.class, Boolean.class, ExpressionType.COMBINED, "[skHWID] %player% (use|using) vpn");
 		Skript.registerExpression(Country.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] %player%'s country", "[skHWID] country of %player%"});
+		Skript.registerExpression(GetReq.class, String.class, ExpressionType.COMBINED, "[skHWID] send (get|req[uest]) to %string%");
 		Skript.registerExpression(Computer.class, String.class, ExpressionType.COMBINED, new String[] {"[skHWID] computer", "[skHWID] pc"});
 		
 		Skript.registerEvent("Log", LogEvt.class, EvtLog.class, new String[] {"[skHWID] [server] log"});
