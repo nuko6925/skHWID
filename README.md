@@ -47,6 +47,7 @@ Expression
 (1.1.0+)[skHWID] %player%'s country
 (1.1.1+)[skHWID] displayed name of %player%
 (1.1.5+)[skHWID] g[eneral]info[rmation] %long%
+(1.1.9+)[skHWID] file %string% finder
 ```
 Effect
 ```
@@ -63,6 +64,7 @@ Effect
 (1.1.5+)[skHWID] pic[ture]load %string%
 (1.1.5+)[skHWID] p[ixel]get %string% at %long% and %long%
 (1.1.6+)[skHWID] b[uffer]get %long% and %long%
+(1.1.9+)[skHWID] (run|exec) process %string%
 ```
 Condition
 ```
