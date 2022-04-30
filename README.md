@@ -1,4 +1,4 @@
-# skHWID 1.1.9
+# skHWID 1.5.1
 This is JavaPlugin(SkriptAddon) for Skript 2.2 dev-25 and Spigot 1.8.8
 Expression
 ```
@@ -48,6 +48,16 @@ Expression
 (1.1.1+)[skHWID] displayed name of %player%
 (1.1.5+)[skHWID] g[eneral]info[rmation] %long%
 (1.1.9+)[skHWID] file %string% finder
+(1.4.1+)[skHWID] %itemstack% besttool to %material%
+(1.4.1+)[skHWID] server tps
+(1.4.1+)[skHWID] last drop[ped] item
+(1.4.1+)[skHWID] get nbt tag[s] of %itemstack%
+(1.4.1+)[skHWID] get native id of %itemstack%
+(1.4.1+)[skHWID] get item durability of %itemstack%
+(1.4.1+)[skHWID] get item stack size of %itemstack%
+(1.5.1+)[skHWID] kick reason
+(1.5.1+)[skHWID] time[ ]stamp
+(1.5.2+)[skHWID] format[ted] (text|string|object) %object% with [format] %string%
 ```
 Effect
 ```
@@ -65,6 +75,12 @@ Effect
 (1.1.5+)[skHWID] p[ixel]get %string% at %long% and %long%
 (1.1.6+)[skHWID] b[uffer]get %long% and %long%
 (1.1.9+)[skHWID] (run|exec) process %string%
+(1.4.1+)[skHWID] set profile name of %player% to %string%
+(1.4.2+)[skHWID] put item durability of %itemstack% to %long%
+(1.4.4+)[skHWID] (run|exec) getprocess %string%
+(1.5.1+)[skHWID] log init [path] %string%
+(1.5.1+)[skHWID] log write[line] %string%
+
 ```
 Condition
 ```
